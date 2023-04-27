@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y + 2f);
+            bulPos = new Vector2(transform.position.x, transform.position.y);
+            
             
             Instantiate(bullet, bulPos, Quaternion.identity);
         }
