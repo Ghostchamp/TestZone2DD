@@ -7,6 +7,7 @@ public class MovaForward : MonoBehaviour
     private float speed = 15f;
     private float angle;
     private Vector2 direction;
+    private SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,13 @@ public class MovaForward : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        if(!collision.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+        }
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyHp>().DamageHeat();
         }
     }
 }
